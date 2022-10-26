@@ -1,0 +1,1 @@
+export '../domais.dart';
