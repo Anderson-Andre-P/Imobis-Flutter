@@ -1,10 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../core/helpers/validators/resources.dart';
 
+const List<Widget> numbersOfBedrooms = <Widget>[
+  Text('1'),
+  Text('2'),
+  Text('3'),
+  Text('+4'),
+];
+
+const List<Widget> numbersOfBathrooms = <Widget>[
+  Text('1'),
+  Text('2'),
+  Text('+3'),
+];
+
 class Filter extends StatefulWidget {
-  const Filter({super.key});
+  const Filter({super.key, this.onClicked});
+  final onClicked;
 
   @override
   State<Filter> createState() => _FilterState();
@@ -20,14 +33,18 @@ class _FilterState extends State<Filter> {
   bool isCheckedTwo = false;
   bool isCheckedThree = false;
 
-  bool active_0 = true;
-  bool active_1 = false;
-  bool active_2 = false;
-  bool active_3 = false;
-  bool active_4 = true;
-  bool active_5 = false;
-  bool active_6 = false;
-  bool active_7 = false;
+  final List<bool> _selectedNumbersOfBedrooms = <bool>[
+    true,
+    false,
+    false,
+    false,
+  ];
+
+  final List<bool> _selectedNumbersOfBathrooms = <bool>[
+    true,
+    false,
+    false,
+  ];
 
   Color getColor(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
@@ -80,7 +97,7 @@ class _FilterState extends State<Filter> {
                         ),
                       ),
                       filled: false,
-                      fillColor: R.colors.customLightGrey,
+                      fillColor: R.colors.customBlue,
                       hintText: "Pesquisar...",
                       prefixIcon: const Icon(
                         CupertinoIcons.search,
@@ -144,7 +161,7 @@ class _FilterState extends State<Filter> {
                   _currentRangeValues = values;
                 });
               },
-              activeColor: R.colors.customLightBlue,
+              activeColor: R.colors.customBlue,
               inactiveColor: R.colors.customGrey,
             ),
             Row(
@@ -193,7 +210,7 @@ class _FilterState extends State<Filter> {
                   _currentRangeAreas = RangeValuesArea;
                 });
               },
-              activeColor: R.colors.customLightBlue,
+              activeColor: R.colors.customBlue,
               inactiveColor: R.colors.customGrey,
             ),
             Row(
@@ -222,14 +239,8 @@ class _FilterState extends State<Filter> {
             const SizedBox(
               height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                buildOption(0, "Todos", active_0),
-                buildOption(1, "1", active_1),
-                buildOption(2, "2", active_2),
-                buildOption(3, "3+", active_3),
-              ],
+            Center(
+              child: buildOptionOfBedrooms(),
             ),
             const SizedBox(
               height: 16,
@@ -245,14 +256,8 @@ class _FilterState extends State<Filter> {
             const SizedBox(
               height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                buildOption(4, "Todos", active_4),
-                buildOption(5, "1", active_5),
-                buildOption(6, "2", active_6),
-                buildOption(7, "3+", active_7),
-              ],
+            Center(
+              child: buildOptionOfBathrooms(),
             ),
             const SizedBox(
               height: 10,
@@ -350,7 +355,7 @@ class _FilterState extends State<Filter> {
                           ),
                         ),
                         child: const Text(
-                          'Limpar filtro',
+                          'Limpar',
                           style: TextStyle(
                             fontSize: 18.0,
                           ),
@@ -375,8 +380,8 @@ class _FilterState extends State<Filter> {
                         ),
                         onPressed: () {},
                         child: const Text(
-                          "Realizar busca",
-                          style: const TextStyle(
+                          "Filtrar",
+                          style: TextStyle(
                             fontSize: 18.0,
                             color: Colors.white,
                           ),
@@ -393,55 +398,58 @@ class _FilterState extends State<Filter> {
     );
   }
 
-  Widget buildOption(int index, String text, bool selected) {
-    return GestureDetector(
-      onTap: () {
+  Widget buildOptionOfBedrooms() {
+    return ToggleButtons(
+      onPressed: (int index) {
+        // All buttons are selectable.
         setState(() {
-          active_0 = !active_0;
+          _selectedNumbersOfBedrooms[index] =
+              !_selectedNumbersOfBedrooms[index];
         });
-        // if (index == 0) {
-        //   setState(() {
-        //     active_0 = !active_0;
-        //   });
-        // } else if (index == 1) {
-        //   setState(() {
-        //     active_1 = !active_1;
-        //   });
-        // } else if (index == 2) {
-        //   setState(() {
-        //     active_2 = !active_2;
-        //   });
-        // } else {
-        //   setState(() {
-        //     active_3 = !active_3;
-        //   });
-        // }
       },
-      child: Container(
-        height: 45,
-        width: 65,
-        decoration: BoxDecoration(
-          color: selected ? R.colors.customLightBlue : Colors.transparent,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(5),
-          ),
-          border: Border.all(
-            width: selected ? 0 : 1,
-            color: R.colors.customGrey,
-          ),
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              color: selected
-                  ? R.colors.customBackground
-                  : R.colors.customDarkTypography,
-              fontSize: 14,
-            ),
-          ),
-        ),
+      // only button is selectable
+      // onPressed: (int index) {
+      //   setState(() {
+      //     for (int i = 0; i < _selectedNumbers.length; i++) {
+      //       _selectedNumbers[i] = i == index;
+      //     }
+      //   });
+      // },
+      borderRadius: const BorderRadius.all(Radius.circular(8)),
+      selectedBorderColor: R.colors.customBlue,
+      selectedColor: Colors.white,
+      fillColor: R.colors.customBlue,
+      color: R.colors.customBlue,
+      constraints: const BoxConstraints(
+        minHeight: 40.0,
+        minWidth: 82.0,
       ),
+      isSelected: _selectedNumbersOfBedrooms,
+      children: numbersOfBedrooms,
+    );
+  }
+
+  Widget buildOptionOfBathrooms() {
+    return ToggleButtons(
+      onPressed: (int index) {
+        // All buttons are selectable.
+        setState(() {
+          _selectedNumbersOfBathrooms[index] =
+              !_selectedNumbersOfBathrooms[index];
+        });
+      },
+      borderRadius: const BorderRadius.all(Radius.circular(8)),
+      selectedBorderColor: R.colors.customBlue,
+      selectedColor: Colors.white,
+      fillColor: R.colors.customBlue,
+      color: R.colors.customBlue,
+      constraints: const BoxConstraints(
+        minHeight: 40.0,
+        minWidth: 110,
+        maxWidth: double.infinity,
+      ),
+      isSelected: _selectedNumbersOfBathrooms,
+      children: numbersOfBathrooms,
     );
   }
 }

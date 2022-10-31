@@ -42,7 +42,7 @@ class _NavigationState extends State<Navigation> {
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0.0,
         backgroundColor: R.colors.customBackground,
-        selectedItemColor: R.colors.customLightBlue,
+        selectedItemColor: R.colors.customBlue,
         unselectedItemColor: R.colors.customDarkGrey,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,

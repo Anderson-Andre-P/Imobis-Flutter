@@ -94,14 +94,11 @@ class _OnboardingState extends State<Onboarding> {
                 },
               ),
             ),
-            // ignore: avoid_unnecessary_containers
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  contents.length,
-                  (index) => buildDot(index, context),
-                ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                contents.length,
+                (index) => buildDot(index, context),
               ),
             ),
             Container(
@@ -200,11 +197,11 @@ class _OnboardingState extends State<Onboarding> {
       margin: const EdgeInsets.only(right: 5),
       decoration: currentIndex == index
           ? BoxDecoration(
-              color: R.colors.customLightBlue,
+              color: R.colors.customBlue,
               borderRadius: BorderRadius.circular(20.0),
             )
           : BoxDecoration(
-              color: R.colors.customBlue,
+              color: R.colors.customLightBlue,
               borderRadius: BorderRadius.circular(20.0),
             ),
     );

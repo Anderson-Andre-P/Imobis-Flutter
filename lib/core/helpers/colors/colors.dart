@@ -8,7 +8,7 @@ class AppColors {
   Color get customLightTypography => const Color(0xFFFFFFFF);
 
   Color get customBlue => const Color(0xFF006AFF);
-  Color get customLightBlue => const Color(0xFF0178F1);
+  Color get customLightBlue => Color.fromARGB(83, 1, 121, 241);
 
   Color get customGrey => const Color(0xFFDADADA);
   Color get customDarkGrey => const Color(0xFF6C6C6C);

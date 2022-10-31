@@ -61,7 +61,7 @@ Widget categoryButton(
           Icon(
             icon,
             size: 24.0,
-            color: R.colors.customLightBlue,
+            color: R.colors.customBlue,
           ),
           const SizedBox(
             width: 6.0,

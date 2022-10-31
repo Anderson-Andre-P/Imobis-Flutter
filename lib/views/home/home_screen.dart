@@ -1,4 +1,7 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:imobis/views/home/widgets/search_field.dart';
+import 'package:imobis/views/shared/components/custom_fab_widget.dart';
 
 import '../../core/helpers/validators/resources.dart';
 import '../../core/mocks/houses_mock.dart';
@@ -34,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Icon(
               Icons.location_on,
-              color: R.colors.customLightBlue,
+              color: R.colors.customBlue,
             ),
             Text(
               'Itajubá, Minas Gerais',
@@ -81,13 +84,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _showBottomSheet();
-        },
-        backgroundColor: R.colors.customLightBlue,
-        child: const Icon(Icons.search),
-      ),
+      floatingActionButton:
+          const CustomFABWidget(transitionType: ContainerTransitionType.fade),
     );
   }
 
@@ -105,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (BuildContext context) {
         return Wrap(
           children: const [
-            Filter(),
+            SearchScreen(),
           ],
         );
       },

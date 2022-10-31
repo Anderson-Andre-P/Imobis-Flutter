@@ -47,7 +47,7 @@ class _DetailScreenState extends State<DetailScreen> {
         elevation: 0.0,
         backgroundColor: R.colors.customBackground,
         iconTheme: IconThemeData(
-          color: R.colors.customLightBlue,
+          color: R.colors.customBlue,
         ),
         title: Text(
           widget.item.title!,
@@ -136,7 +136,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     Text(
                       widget.item.category!,
                       style: TextStyle(
-                        color: R.colors.customLightBlue,
+                        color: R.colors.customBlue,
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
                       ),
@@ -463,13 +463,13 @@ class _DetailScreenState extends State<DetailScreen> {
               ),
               Container(
                 height: 480.0,
-                color: R.colors.customLightBlue,
+                color: R.colors.customBlue,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SuggestionList(
-                      backgroundColor: R.colors.customLightBlue,
+                      backgroundColor: R.colors.customBlue,
                       title: "Outras recomendações para você",
                       typographTitleColor: R.colors.customBackground,
                       items: Item.newRecommendation,
@@ -487,7 +487,7 @@ class _DetailScreenState extends State<DetailScreen> {
         },
         label: const Text('Entrar em contato'),
         icon: const Icon(Icons.whatsapp_outlined),
-        backgroundColor: R.colors.customLightBlue,
+        backgroundColor: R.colors.customBlue,
       ),
     );
   }

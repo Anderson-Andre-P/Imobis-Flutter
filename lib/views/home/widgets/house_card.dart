@@ -58,7 +58,7 @@ class _ItemCardState extends State<ItemCard> {
               Text(
                 widget.item.category!,
                 style: TextStyle(
-                  color: R.colors.customLightBlue,
+                  color: R.colors.customBlue,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
