@@ -30,6 +30,8 @@ dependencies:
   firebase_messaging: ^13.0.3
   firebase_core: ^1.23.0
 
+  overlay_support: ^2.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

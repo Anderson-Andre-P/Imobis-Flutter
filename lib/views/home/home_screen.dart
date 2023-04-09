@@ -2,6 +2,8 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:imobis/views/home/widgets/search_field.dart';
 import 'package:imobis/views/shared/components/custom_fab_widget.dart';
+import 'package:imobis/views/shared/theme/config.dart';
+import 'package:imobis/views/shared/theme/theme_mode.dart';
 
 import '../../core/helpers/validators/resources.dart';
 import '../../core/mocks/houses_mock.dart';
@@ -49,10 +51,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => currentTheme.switchTheme(),
             icon: Icon(
-              Icons.notifications,
-              color: R.colors.customDarkGrey,
+              Icons.mode_night_rounded,
+              color: Mytheme.isDark ? R.colors.almostDark : R.colors.lightGrey,
             ),
           ),
         ],
@@ -63,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             // const SearchField(),
             const SelectCategory(),
+
             const SizedBox(
               height: 6.0,
             ),

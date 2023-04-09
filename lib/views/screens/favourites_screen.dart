@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imobis/views/shared/theme/config.dart';
 
 import '../../core/domais.dart';
 
@@ -20,7 +21,12 @@ class _FavouritesState extends State<Favourites> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: null,
+        child: IconButton(
+          icon: Icon(Icons.mode_night_rounded),
+          onPressed: () {
+            currentTheme.switchTheme();
+          },
+        ),
       ),
     );
   }
