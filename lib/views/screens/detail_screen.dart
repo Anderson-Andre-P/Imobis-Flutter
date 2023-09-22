@@ -69,7 +69,8 @@ class _DetailScreenState extends State<DetailScreen> {
                     // enlargeCenterPage: true,
                     // aspectRatio: 1.0,
                     // autoPlay: true,
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    autoPlayAnimationDuration:
+                        const Duration(milliseconds: 800),
                     autoPlayCurve: Curves.fastOutSlowIn,
                     onPageChanged: (index, reason) {
                       setState(() {
@@ -312,7 +313,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: 200,
                 child: const Image(
@@ -345,7 +346,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -486,7 +487,7 @@ class _DetailScreenState extends State<DetailScreen> {
           // Add your onPressed code here!
         },
         label: const Text('Entrar em contato'),
-        icon: const Icon(Icons.whatsapp_outlined),
+        icon: const Icon(Icons.phone_in_talk_rounded),
         backgroundColor: R.colors.customBlue,
       ),
     );
